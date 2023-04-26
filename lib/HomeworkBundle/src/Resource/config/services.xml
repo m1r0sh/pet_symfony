@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="symfony_skillbox_homework.unit_factory" class="SymfonySkillbox\HomeworkBundle\UnitFactory" public="true">
+            <argument type="service" id="symfony_skillbox_homework.strategy"/>
+            <argument type="tagged_iterator" tag="symfony_skillbox_homework.unit_provider"/>
+        </service>
+
+        <service id="SymfonySkillbox\HomeworkBundle\UnitFactory" alias="symfony_skillbox_homework.unit_factory" public="false"/>
+        <service id="SymfonySkillbox\HomeworkBundle\Strategy" alias="symfony_skillbox_homework.strategy" public="false"/>
+        <service id="SymfonySkillbox\HomeworkBundle\StrengthStrategy" alias="symfony_skillbox_homework.strategy_strength" public="false"/>
+        <service id="SymfonySkillbox\HomeworkBundle\StrategyHealth" alias="symfony_skillbox_homework.strategy_health" public="false"/>
+        <service id="SymfonySkillbox\HomeworkBundle\ProduceUnitCommand" alias="symfony_skillbox_homework.produce_unit_command" public="false"/>
+    </services>
+</container>
